@@ -1,0 +1,192 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  /* Fundo gradiente pôr do sol */
+  background: linear-gradient(135deg, 
+    #ff9a9e 0%,    /* rosa claro */
+    #fad0c4 30%,   /* rosa suave */
+    #fad0c4 40%,   /* rosa suave repetido pra transição */
+    #fbc2eb 50%,   /* rosa/púrpura claro */
+    #a18cd1 70%,   /* roxo suave */
+    #fbc2eb 85%,   /* rosa/púrpura claro */
+    #ffecd2 100%   /* amarelo claro */
+  );
+}
+
+
+.envelope-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.envelope {
+  position: relative;
+  height: 50vh;
+  width: calc(50vh * 1.5); /* proporção largura x altura */
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.topo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #3399ff;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  z-index: 3;
+  transform-origin: top;
+  transition: transform 1s;
+}
+
+.corpo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #3399ff;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.aba {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #2083b4;
+  clip-path: polygon(0 100%, 100% 100%, 50% 50%);
+  z-index: 2;
+}
+
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* corações não bloqueiam clique */
+  overflow: hidden;
+  z-index: 0; /* atrás do envelope */
+}
+
+.heart {
+  position: absolute;
+  user-select: none;
+  animation: float 3s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(-10px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.8; }
+}
+
+
+.carta-page {
+  background: linear-gradient(135deg, 
+    #ff9a9e 0%, 
+    #fad0c4 30%, 
+    #fad0c4 40%, 
+    #fbc2eb 50%, 
+    #a18cd1 70%, 
+    #fbc2eb 85%, 
+    #ffecd2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+.papel-carta {
+  background-color: #fffdf9;
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  max-height: 80vh;
+  width: 90%;
+  height: auto;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  position: relative;
+  z-index: 2;
+  scroll-behavior: smooth;
+}
+
+/* Barra de rolagem discreta para desktop */
+.papel-carta::-webkit-scrollbar {
+  width: 8px;
+}
+.papel-carta::-webkit-scrollbar-thumb {
+  background: #ffb6c1;
+  border-radius: 4px;
+}
+.papel-carta::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.papel-carta h1 {
+  color: #ff6f91;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.botao-voltar {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.botao-voltar a {
+  text-decoration: none;
+  color: #ff6f91;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.botao-voltar a:hover {
+  color: #d94375;
+}
+
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  animation: float 3s ease-in-out infinite;
+  opacity: 0.8;
+  user-select: none;
+  color: #ff6f91;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(-10px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.8; }
+}
